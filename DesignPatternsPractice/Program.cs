@@ -1,4 +1,5 @@
-﻿using DesignPatternsPractice.Singleton;
+﻿using DesignPatternsPractice.Facade;
+using DesignPatternsPractice.Singleton;
 using System;
 
 namespace DesignPatternsPractice
@@ -7,6 +8,8 @@ namespace DesignPatternsPractice
     {
         static void Main(string[] args)
         {
+            // Singleton Implementation
+            /*
             ConfigurationDetails configuration1 = new ConfigurationDetails
             {
                 apiKey = "default_api_key1",
@@ -28,6 +31,12 @@ namespace DesignPatternsPractice
 
             ConfigurationManager configInstance2 = ConfigurationManager.getInstance();
             configInstance1.AddConfigDetails(configuration2);
+            */
+
+
+            //Facade Implementation
+            FacadeClass.StartMovieNight();
+
 
         }
     }
