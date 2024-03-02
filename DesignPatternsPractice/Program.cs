@@ -67,8 +67,6 @@ namespace DesignPatternsPractice
             //Removing subscriber (unsubscribing the subject) using observer instance
             observer3.RemoveSubscriber(motionSenor);
 
-            motionSenor.NotifyDevices();
-
         }
     }
 }
