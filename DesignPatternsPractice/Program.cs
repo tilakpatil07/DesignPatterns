@@ -3,6 +3,7 @@ using DesignPatternsPractice.Facade;
 using DesignPatternsPractice.Factory;
 using DesignPatternsPractice.Observer;
 using DesignPatternsPractice.Singleton;
+using DesignPatternsPractice.Strategy;
 using System;
 
 namespace DesignPatternsPractice
@@ -84,6 +85,7 @@ namespace DesignPatternsPractice
 
 
             //Factory Implementation
+            /*
             string carType = Console.ReadLine();
             ICar car = null;
             if(carType == "Sedan")
@@ -105,6 +107,20 @@ namespace DesignPatternsPractice
             {
                 Console.Write("Invalid Car Type !!");
             }
+            */
+
+
+            //Strategy Implementation
+            IPaymentMethod pay = new PaymentByCard(45, "XEAE1");
+            Context payContext = new Context(pay);
+
+            payContext.PayMoney();
+
+            payContext.SetStrategy(new PayByPaypal(800, "MIGF5"));
+            payContext.PayMoney();
+
+            payContext.SetStrategy(new PaymentByCrypto(1500, "GF561KY9"));
+            payContext.PayMoney();
         }
     }
 }
