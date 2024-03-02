@@ -1,4 +1,5 @@
-﻿using DesignPatternsPractice.Facade;
+﻿using DesignPatternsPractice.Adapter;
+using DesignPatternsPractice.Facade;
 using DesignPatternsPractice.Observer;
 using DesignPatternsPractice.Singleton;
 using System;
@@ -41,6 +42,7 @@ namespace DesignPatternsPractice
             */
 
             //Observer Implementation
+            /*
             //Subscriber instnce
             MotionSensor motionSenor = new MotionSensor();
 
@@ -66,6 +68,17 @@ namespace DesignPatternsPractice
 
             //Removing subscriber (unsubscribing the subject) using observer instance
             observer3.RemoveSubscriber(motionSenor);
+            */
+
+            //Adapter Implementation
+
+            LegacySystem legacySystem = new LegacySystem();
+            ThirdPartySystem thirdPartySystem = new ThirdPartySystem();
+            AdapterClass adapter = new AdapterClass(thirdPartySystem);
+
+            List<LegacyData> legacyDataList = legacySystem.SendData();
+
+            thirdPartySystem.UploadData(adapter.ProcessData(legacyDataList));
 
         }
     }
