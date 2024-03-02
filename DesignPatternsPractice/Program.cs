@@ -1,5 +1,6 @@
 ﻿using DesignPatternsPractice.Adapter;
 using DesignPatternsPractice.Facade;
+using DesignPatternsPractice.Factory;
 using DesignPatternsPractice.Observer;
 using DesignPatternsPractice.Singleton;
 using System;
@@ -71,7 +72,7 @@ namespace DesignPatternsPractice
             */
 
             //Adapter Implementation
-
+            /*
             LegacySystem legacySystem = new LegacySystem();
             ThirdPartySystem thirdPartySystem = new ThirdPartySystem();
             AdapterClass adapter = new AdapterClass(thirdPartySystem);
@@ -79,7 +80,31 @@ namespace DesignPatternsPractice
             List<LegacyData> legacyDataList = legacySystem.SendData();
 
             thirdPartySystem.UploadData(adapter.ProcessData(legacyDataList));
+            */
 
+
+            //Factory Implementation
+            string carType = Console.ReadLine();
+            ICar car = null;
+            if(carType == "Sedan")
+            {
+                car = new Sedan();
+                FactoryClass.CarDetails(car);
+            }
+            else if(carType == "SUV")
+            {
+                car = new SUV();
+                FactoryClass.CarDetails(car);
+            }
+            else if(carType == "HatchBack" || carType == "Hatchback")
+            {
+                car = new HatchBack();
+                FactoryClass.CarDetails(car);   
+            }
+            else
+            {
+                Console.Write("Invalid Car Type !!");
+            }
         }
     }
 }
